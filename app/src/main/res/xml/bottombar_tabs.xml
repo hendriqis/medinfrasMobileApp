@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_home"
+        id="@+id/tab_home"
+        title="Home" />
+    <tab
+        icon="@drawable/ic_chat"
+        id="@+id/tab_chat"
+        title="Chat" />
+    <tab
+        icon="@drawable/ic_android_black_24dp"
+        id="@+id/tab_nearby"
+        title="Nearby" />
+    <tab
+        icon="@drawable/ic_android_black_24dp"
+        id="@+id/tab_friends"
+        title="Friends" />
+</tabs>

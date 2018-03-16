@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@color/colorDarkWhite"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/app_bar_main">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/outpatientBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:width="100dp"
+                        android:height="100dp"
+                        android:text="Outpatient"
+                        android:textSize="10dp" />
+
+                    <Button
+                        android:id="@+id/inpatientBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:width="100dp"
+                        android:height="100dp"
+                        android:text="Inpatient"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/btnEW6C1"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS 1"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/btnEW6C2"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS 2"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS 1"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS 1"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/btnEW6C3"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS 3"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/btnEW6VIP"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/colorDashboard"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="2dp"
+                        app:cardMaxElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:elevation="0dp"
+                                android:src="@drawable/ic_patientbed" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#0000"
+                                android:gravity="start"
+                                android:text="EAST WING 6, CLASS VIP"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </HorizontalScrollView>
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:bb_activeTabAlpha="1"
+        app:bb_activeTabColor="@color/colorWhite"
+        app:bb_inActiveTabAlpha="0.6"
+        app:bb_inActiveTabColor="#222222"
+        app:bb_tabXmlResource="@xml/bottombar_tabs" />
+</LinearLayout>
+

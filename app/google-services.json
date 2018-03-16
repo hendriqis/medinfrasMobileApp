@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "189675502882",
+    "firebase_url": "https://chatmedinfras.firebaseio.com",
+    "project_id": "chatmedinfras",
+    "storage_bucket": "chatmedinfras.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189675502882:android:fb3c0bfd6ce66b81",
+        "android_client_info": {
+          "package_name": "com.example.lenovo.medinfras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189675502882-kqacghdbepti85bnplgu0f4n1027ip3r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.medinfras",
+            "certificate_hash": "ab70ad418ae219b4818a55c294eca1f915f7e161"
+          }
+        },
+        {
+          "client_id": "189675502882-1j8fem2linrqumpc63nc9k4d56lt3v64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDthR9NU56Npzopb4HdfzKGo8wHw5-zaOo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189675502882-1j8fem2linrqumpc63nc9k4d56lt3v64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
