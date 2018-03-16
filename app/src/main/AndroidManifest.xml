@@ -35,12 +35,6 @@
             android:name=".activity.PatientDetailActivity"
             android:label="Patient Detail"
             android:parentActivityName=".activity.PatientListViewActivity" />
-        <!--
-            <activity
-            android:name=".activity.TestPatientDetailActivity"
-            android:label="Patient Detail"
-            android:parentActivityName=".activity.PatientListViewActivity" />
-        -->
         <activity
             android:name=".activity.PatientListActivity"
             android:label="Patient List"
