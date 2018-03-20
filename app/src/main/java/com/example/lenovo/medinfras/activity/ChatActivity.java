@@ -66,16 +66,19 @@ public class ChatActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menuSignOut) {
-            AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
+            AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>
+                    () {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    Snackbar.make(chatRelativeLayout, "You have been signed out", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(chatRelativeLayout, "You have been signed out", Snackbar
+                            .LENGTH_SHORT).show();
                     startActivity(new Intent(ChatActivity.this, MainActivity.class));
                     finish();
                 }
             });
         } else if (item.getItemId() == R.id.menuDeleteChat) {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+                    .getRoot();
             databaseReference.removeValue();
             Toast.makeText(this, "All chat deleted", Toast.LENGTH_SHORT).show();
         }
@@ -93,10 +96,13 @@ public class ChatActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SIGN_IN_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Snackbar.make(chatRelativeLayout, "Successfully signed in. Welcome!", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(chatRelativeLayout, "Successfully signed in. Welcome!", Snackbar
+                        .LENGTH_SHORT).show();
                 displayChatMessage();
             } else {
-                Snackbar.make(chatRelativeLayout, "We couldn't sign you in. Please try again later", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(chatRelativeLayout, "We couldn't sign you in. Please try again " +
+                        "later", Snackbar
+                        .LENGTH_SHORT).show();
                 finish();
             }
         }
@@ -114,35 +120,43 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText input = (EditText) findViewById(R.id.inputTextChat);
-                firebasePush = FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),
+                firebasePush = FirebaseDatabase.getInstance().getReference().push().setValue(new
+                        ChatMessage(input.getText
+                        ().toString(),
                         FirebaseAuth.getInstance().getCurrentUser().getDisplayName()));
                 input.setText("");
 
                 //Notification triggered when the same uid press the send button
-
                 adapter.registerDataSetObserver(new DataSetObserver() {
                     @Override
                     public void onChanged() {
-                        if (FirebaseAuth.getInstance().getCurrentUser().getUid() != FirebaseAuth.getInstance().getCurrentUser().getUid()) {
-                            Toast.makeText(ChatActivity.this, "Same User", Toast.LENGTH_SHORT).show();
-                        } else {
+                        if (FirebaseAuth.getInstance().getCurrentUser().getUid() != FirebaseAuth
+                                .getInstance()
+                                .getCurrentUser().getUid()) {
+                            Toast.makeText(ChatActivity.this, "Same User", Toast.LENGTH_SHORT)
+                                    .show();
+                        } /*else {
                             showNotification();
-                        }
+                        }*/
                     }
                 });
             }
         });
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(), SIGN_IN_REQUEST_CODE);
+            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(),
+                    SIGN_IN_REQUEST_CODE);
         } else {
-            Snackbar.make(chatRelativeLayout, "Welcome " + FirebaseAuth.getInstance().getCurrentUser().getEmail(), Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(chatRelativeLayout, "Welcome " + FirebaseAuth.getInstance()
+                            .getCurrentUser().getEmail(),
+                    Snackbar.LENGTH_SHORT).show();
             displayChatMessage();
         }
 
         //Notification function
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel = new NotificationChannel(CHANNEL_ID, "myChannel", NotificationManager.IMPORTANCE_LOW);
+            notificationChannel = new NotificationChannel(CHANNEL_ID, "myChannel",
+                    NotificationManager.IMPORTANCE_LOW);
         }
         notification = new NotificationCompat.Builder(this, CHANNEL_ID);
         notification.setAutoCancel(true);
@@ -172,13 +186,15 @@ public class ChatActivity extends AppCompatActivity {
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
-                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getMessageTime()));
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model
+                        .getMessageTime()));
             }
         };
         listOfMessage.setAdapter(adapter);
     }
 
-    private void showNotification() {
+    //function to build the notification
+    /*private void showNotification() {
         //Build the notification
         notification.setSmallIcon(R.drawable.ic_notifications_active);
         notification.setTicker("This is ticker");
@@ -186,14 +202,18 @@ public class ChatActivity extends AppCompatActivity {
         notification.setContentTitle(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
         notification.setContentText("Sent new messages");
 
-        //When you open another application, this function below allow you to move directly to specific activity, in this case
+        //When you open another application, this function below allow you to move directly to
+        specific activity, in this
+        // case
         //ChatMessage activity
         Intent intent = new Intent(this, ChatActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent
+        .FLAG_UPDATE_CURRENT);
         notification.setContentIntent(pendingIntent);
 
         //Build notification and issues it
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService
+        (NOTIFICATION_SERVICE);
         notificationManager.notify(uniqueID, notification.build());
-    }
+    }*/
 }

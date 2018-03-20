@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.example.lenovo.medinfras.activity.PatientRecyclerViewActivity;
 import com.example.lenovo.medinfras.activity.TimelineActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -75,9 +77,8 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, TimelineActivity.class);
-                context.startActivity(intent);/*Picasso.with(context)
-                .load(listitem.getImageCard())
-                .into(holder.imageViewPatient);*/
+                context.startActivity(intent);
+
             }
         });
     }
@@ -120,5 +121,11 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
                 }
             });
         }
+    }
+
+    public void setFilter(List<Listitem> newList){
+        list_item = new ArrayList<>();
+        list_item.addAll(newList);
+        notifyDataSetChanged();
     }
 }
