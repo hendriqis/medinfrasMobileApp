@@ -60,6 +60,14 @@
             android:name=".activity.ChatActivity"
             android:label="Chat Forum"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.CalendarActivity"
+            android:label="Calendar"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.WeekViewActivity"
+            android:label="Week View Calendar"
+            android:parentActivityName=".activity.CalendarActivity" />
     </application>
 
 </manifest>

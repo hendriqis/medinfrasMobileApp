@@ -9,9 +9,9 @@
         id="@+id/tab_chat"
         title="Chat" />
     <tab
-        icon="@drawable/ic_android_black_24dp"
-        id="@+id/tab_nearby"
-        title="Nearby" />
+        icon="@drawable/ic_calendar"
+        id="@+id/tab_calendar"
+        title="Calendar" />
     <tab
         icon="@drawable/ic_android_black_24dp"
         id="@+id/tab_friends"

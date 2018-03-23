@@ -27,9 +27,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.lenovo.medinfras.activity.CalendarActivity;
 import com.example.lenovo.medinfras.activity.ChatActivity;
 import com.example.lenovo.medinfras.activity.LoginActivity;
 import com.example.lenovo.medinfras.activity.SummaryOfPatientPerFloorActivity;
+import com.example.lenovo.medinfras.activity.WeekViewActivity;
 import com.example.lenovo.medinfras.model.ChatMessage;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity
     Animation FabOpen, FabClose, FabRotateClockwise, FabRotateAnticlockwise;
     boolean isOpen = false;
 
+    private Context context;
+
     //notification
     NotificationCompat.Builder notification;
     private static final int uniqueID = 2312;
@@ -78,7 +82,8 @@ public class MainActivity extends AppCompatActivity
 
         //Notification function
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel = new NotificationChannel(CHANNEL_ID, "myChannel", NotificationManager.IMPORTANCE_LOW);
+            notificationChannel = new NotificationChannel(CHANNEL_ID, "myChannel",
+                    NotificationManager.IMPORTANCE_LOW);
         }
         notification = new NotificationCompat.Builder(this, CHANNEL_ID);
         notification.setAutoCancel(true);
@@ -86,50 +91,73 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final FloatingActionButton fab_hamburger = (FloatingActionButton) findViewById(R.id.fab_hamburger);
-        final FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id.fab_logout);
-        final FloatingActionButton fab_notification = (FloatingActionButton) findViewById(R.id.fab_notification);
+        final FloatingActionButton fab_hamburger = (FloatingActionButton) findViewById(R.id
+                .fab_hamburger);
+        final FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id
+                .fab_logout);
+        final FloatingActionButton fab_notification = (FloatingActionButton) findViewById(R.id
+                .fab_notification);
         FabOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
         FabClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
-        FabRotateClockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_rotate_clockwise);
-        FabRotateAnticlockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_rotate_anticlockwise);
+        FabRotateClockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim
+                .fab_rotate_clockwise);
+        FabRotateAnticlockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim
+                .fab_rotate_anticlockwise);
         fab_hamburger.setOnClickListener(new View.OnClickListener() {
                                              @Override
                                              public void onClick(View view) {
                                                  if (isOpen) {
                                                      fab_logout.startAnimation(FabClose);
                                                      fab_notification.startAnimation(FabClose);
-                                                     fab_hamburger.startAnimation(FabRotateAnticlockwise);
+                                                     fab_hamburger.startAnimation
+                                                             (FabRotateAnticlockwise);
                                                      fab_logout.setClickable(false);
                                                      fab_notification.setClickable(false);
                                                      isOpen = false;
                                                  } else {
                                                      fab_logout.startAnimation(FabOpen);
                                                      fab_notification.startAnimation(FabOpen);
-                                                     fab_hamburger.startAnimation(FabRotateClockwise);
-                                                     fab_logout.setOnClickListener(new View.OnClickListener() {
+                                                     fab_hamburger.startAnimation
+                                                             (FabRotateClockwise);
+                                                     fab_logout.setOnClickListener(new View
+                                                             .OnClickListener() {
                                                          @Override
                                                          public void onClick(View view) {
-                                                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                                             AlertDialog.Builder builder = new
+                                                                     AlertDialog.Builder
+                                                                     (MainActivity.this);
                                                              builder.setTitle("Log Out")
-                                                                     .setMessage("Do you want to log out?")
-                                                                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                                                         @Override
-                                                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                                                             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                                                                             finish();
-                                                                         }
-                                                                     })
-                                                                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                                                         @Override
-                                                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                                                             dialogInterface.cancel();
-                                                                         }
-                                                                     })
+                                                                     .setMessage("Do you want to " +
+                                                                             "log out?")
+                                                                     .setPositiveButton("Yes",
+                                                                             new DialogInterface
+                                                                                     .OnClickListener() {
+                                                                                 @Override
+                                                                                 public void onClick
+                                                                                         (DialogInterface
+                                                                                                  dialogInterface, int i) {
+                                                                                     startActivity(new
+                                                                                             Intent
+                                                                                             (MainActivity.this, LoginActivity.class));
+                                                                                     finish();
+                                                                                 }
+                                                                             })
+                                                                     .setNegativeButton("No", new
+                                                                             DialogInterface
+                                                                                     .OnClickListener() {
+                                                                                 @Override
+                                                                                 public void onClick
+                                                                                         (DialogInterface
+                                                                                                  dialogInterface, int i) {
+                                                                                     dialogInterface
+                                                                                             .cancel();
+                                                                                 }
+                                                                             })
                                                                      .show();
                                                          }
                                                      });
-                                                     fab_notification.setOnClickListener(new View.OnClickListener() {
+                                                     fab_notification.setOnClickListener(new View
+                                                             .OnClickListener() {
                                                          @Override
                                                          public void onClick(View view) {
                                                              showNotification();
@@ -144,7 +172,8 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string
+                .navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -163,8 +192,10 @@ public class MainActivity extends AppCompatActivity
                         Intent toChatActivity = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(toChatActivity);
                         break;
-                    case R.id.tab_nearby:
-                        Toast.makeText(MainActivity.this, "nearby", Toast.LENGTH_SHORT).show();
+                    case R.id.tab_calendar:
+                        Intent toCalendarActivity = new Intent(MainActivity.this,
+                                CalendarActivity.class);
+                        startActivity(toCalendarActivity);
                         break;
                     case R.id.tab_friends:
                         Toast.makeText(MainActivity.this, "friends", Toast.LENGTH_SHORT).show();
@@ -183,8 +214,10 @@ public class MainActivity extends AppCompatActivity
                         Intent toChatActivity = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(toChatActivity);
                         break;
-                    case R.id.tab_nearby:
-                        Toast.makeText(MainActivity.this, "nearby", Toast.LENGTH_SHORT).show();
+                    case R.id.tab_calendar:
+                        Intent toCalendarActivity = new Intent(MainActivity.this,
+                                CalendarActivity.class);
+                        startActivity(toCalendarActivity);
                         break;
                     case R.id.tab_friends:
                         Toast.makeText(MainActivity.this, "friends", Toast.LENGTH_SHORT).show();
@@ -231,8 +264,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_calendar) {
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -284,14 +317,17 @@ public class MainActivity extends AppCompatActivity
         notification.setContentTitle("This is title notification");
         notification.setContentText("This is description notification");
 
-        //When you open another application, this function below allow you to move directly to specific activity, in this case
+        //When you open another application, this function below allow you to move directly to
+        // specific activity, in this case
         //ChatMessage activity
         Intent intent = new Intent(this, ChatMessage.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent
+                .FLAG_UPDATE_CURRENT);
         notification.setContentIntent(pendingIntent);
 
         //Build notification and issues it
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService
+                (NOTIFICATION_SERVICE);
         notificationManager.notify(uniqueID, notification.build());
 
     }
