@@ -104,69 +104,56 @@ public class MainActivity extends AppCompatActivity
         FabRotateAnticlockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim
                 .fab_rotate_anticlockwise);
         fab_hamburger.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View view) {
-                                                 if (isOpen) {
-                                                     fab_logout.startAnimation(FabClose);
-                                                     fab_notification.startAnimation(FabClose);
-                                                     fab_hamburger.startAnimation
-                                                             (FabRotateAnticlockwise);
-                                                     fab_logout.setClickable(false);
-                                                     fab_notification.setClickable(false);
-                                                     isOpen = false;
-                                                 } else {
-                                                     fab_logout.startAnimation(FabOpen);
-                                                     fab_notification.startAnimation(FabOpen);
-                                                     fab_hamburger.startAnimation
-                                                             (FabRotateClockwise);
-                                                     fab_logout.setOnClickListener(new View
-                                                             .OnClickListener() {
-                                                         @Override
-                                                         public void onClick(View view) {
-                                                             AlertDialog.Builder builder = new
-                                                                     AlertDialog.Builder
-                                                                     (MainActivity.this);
-                                                             builder.setTitle("Log Out")
-                                                                     .setMessage("Do you want to " +
-                                                                             "log out?")
-                                                                     .setPositiveButton("Yes",
-                                                                             new DialogInterface
-                                                                                     .OnClickListener() {
-                                                                                 @Override
-                                                                                 public void onClick
-                                                                                         (DialogInterface
-                                                                                                  dialogInterface, int i) {
-                                                                                     startActivity(new
-                                                                                             Intent
-                                                                                             (MainActivity.this, LoginActivity.class));
-                                                                                     finish();
-                                                                                 }
-                                                                             })
-                                                                     .setNegativeButton("No", new
-                                                                             DialogInterface
-                                                                                     .OnClickListener() {
-                                                                                 @Override
-                                                                                 public void onClick
-                                                                                         (DialogInterface
-                                                                                                  dialogInterface, int i) {
-                                                                                     dialogInterface
-                                                                                             .cancel();
-                                                                                 }
-                                                                             })
-                                                                     .show();
-                                                         }
-                                                     });
-                                                     fab_notification.setOnClickListener(new View
-                                                             .OnClickListener() {
-                                                         @Override
-                                                         public void onClick(View view) {
-                                                             showNotification();
-                                                         }
-                                                     });
-                                                     isOpen = true;
-                                                 }
-                                             }
+             @Override
+             public void onClick(View view) {
+                 if (isOpen) {
+                     fab_logout.startAnimation(FabClose);
+                     fab_notification.startAnimation(FabClose);
+                     fab_hamburger.startAnimation(FabRotateAnticlockwise);
+                     fab_logout.setClickable(false);
+                     fab_notification.setClickable(false);
+                     isOpen = false;
+                 } else {
+                     fab_logout.startAnimation(FabOpen);
+                     fab_notification.startAnimation(FabOpen);
+                     fab_hamburger.startAnimation(FabRotateClockwise);
+                     fab_logout.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                             builder.setTitle("Log Out")
+                                     .setMessage("Do you want to " + "log out?")
+                                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                         @Override
+                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                             /*startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                                             finish();*/
+                                             Intent intent = new Intent(MainActivity.this,
+                                                     LoginActivity.class);
+                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                                                     Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                             startActivity(intent);
+                                             finish();
                                          }
+                                     })
+                                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                         @Override
+                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                             dialogInterface.cancel();
+                                         }
+                                     }).show();
+                         }
+                     });
+                     fab_notification.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             showNotification();
+                         }
+                     });
+                     isOpen = true;
+                 }
+             }
+         }
 
         );
 
@@ -191,6 +178,7 @@ public class MainActivity extends AppCompatActivity
                     case R.id.tab_chat:
                         Intent toChatActivity = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(toChatActivity);
+                        finish();
                         break;
                     case R.id.tab_calendar:
                         Intent toCalendarActivity = new Intent(MainActivity.this,

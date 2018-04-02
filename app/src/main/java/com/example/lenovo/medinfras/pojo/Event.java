@@ -13,6 +13,9 @@ import java.util.Date;
 
 public class Event {
 
+    @SerializedName("monthOfYear")
+    private int monthOfYear;
+
     @SerializedName("color")
     private String color;
 
@@ -28,51 +31,60 @@ public class Event {
     @SerializedName("endTime")
     private String endTime;
 
-    public void setColor(String color) {
+    public void setMonthOfYear(int monthOfYear){
+        this.monthOfYear = monthOfYear;
+    }
+
+    public int getMonthOfYear(){
+        return monthOfYear;
+    }
+
+    public void setColor(String color){
         this.color = color;
     }
 
-    public String getColor() {
+    public String getColor(){
         return color;
     }
 
-    public void setDayOfMonth(int dayOfMonth) {
+    public void setDayOfMonth(int dayOfMonth){
         this.dayOfMonth = dayOfMonth;
     }
 
-    public int getDayOfMonth() {
+    public int getDayOfMonth(){
         return dayOfMonth;
     }
 
-    public void setName(String name) {
+    public void setName(String name){
         this.name = name;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(String startTime){
         this.startTime = startTime;
     }
 
-    public String getStartTime() {
+    public String getStartTime(){
         return startTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(String endTime){
         this.endTime = endTime;
     }
 
-    public String getEndTime() {
+    public String getEndTime(){
         return endTime;
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         return
-                "Event{" +
-                        "color = '" + color + '\'' +
+                "NewEvent{" +
+                        "monthOfYear = '" + monthOfYear + '\'' +
+                        ",color = '" + color + '\'' +
                         ",dayOfMonth = '" + dayOfMonth + '\'' +
                         ",name = '" + name + '\'' +
                         ",startTime = '" + startTime + '\'' +
@@ -105,7 +117,7 @@ public class Event {
         Calendar startTime = (Calendar) now.clone();
         startTime.setTimeInMillis(start.getTime());
         startTime.set(Calendar.YEAR, now.get(Calendar.YEAR));
-        startTime.set(Calendar.MONTH, now.get(Calendar.MONTH));
+        startTime.set(Calendar.MONTH, getMonthOfYear());
         startTime.set(Calendar.DAY_OF_MONTH, getDayOfMonth());
 
         //End Time

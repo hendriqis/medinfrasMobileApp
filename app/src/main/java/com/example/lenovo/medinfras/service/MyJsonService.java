@@ -13,6 +13,6 @@ import retrofit.http.GET;
 
 public interface MyJsonService {
 
-    @GET("/18e9vn")
+    @GET("/1cd83j")
     void listEvents(Callback<List<Event>> eventsCallback);
 }

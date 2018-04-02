@@ -43,8 +43,7 @@ public class WeekViewActivity extends AppCompatActivity implements WeekView
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
 
-        // Download events from network if it hasn't been done already. To understand how events are
-        // downloaded using retrofit, visit http://square.github.io/retrofit
+        // Download events from network if it hasn't been done already.
         if (!calledNetwork) {
             RestAdapter retrofit = new RestAdapter.Builder()
                     .setEndpoint("https://api.myjson.com/bins")
@@ -230,6 +229,4 @@ public class WeekViewActivity extends AppCompatActivity implements WeekView
     public WeekView getWeekView() {
         return mWeekView;
     }
-
-
 }

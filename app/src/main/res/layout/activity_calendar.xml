@@ -10,6 +10,7 @@
         android:id="@+id/calendarPickerViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:tsquare_dividerColor="@color/fui_transparent"
         />
 
 </RelativeLayout>

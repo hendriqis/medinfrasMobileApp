@@ -40,7 +40,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
     SwipeRefreshLayout swipeRefreshLayoutId;
 
 
-    private static final String json_url = "https://api.jsonbin.io/b/5a98a83473fb541c61a5af78";
+    private static final String json_url = "https://api.myjson.com/bins/h9kap";
     private List<Listitem> list_item;
     private RecyclerViewCardAdapter adapter;
 

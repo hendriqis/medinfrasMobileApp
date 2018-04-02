@@ -106,12 +106,13 @@
                     android:background="@color/colorBlack" />
 
                 <Button
+                    android:id="@+id/btnObatCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_weight="1"
                     android:background="#0000"
-                    android:text="Button" />
+                    android:text="Daftar Obat" />
 
                 <View
                     android:layout_width="1px"

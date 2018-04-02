@@ -11,10 +11,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.lenovo.medinfras.R;
+import com.squareup.timessquare.CalendarCellDecorator;
 import com.squareup.timessquare.CalendarPickerView;
+import com.squareup.timessquare.DefaultDayViewAdapter;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -26,7 +30,7 @@ public class CalendarActivity extends AppCompatActivity {
 
         Date today = new Date();
         Calendar nextYear = Calendar.getInstance();
-        nextYear.add(Calendar.YEAR, 1);
+        nextYear.add(Calendar.YEAR, 10);
 
         CalendarPickerView datePicker = findViewById(R.id.calendarPickerViewId);
         datePicker.init(today, nextYear.getTime())

@@ -81,6 +81,8 @@ public class ChatActivity extends AppCompatActivity {
                     .getRoot();
             databaseReference.removeValue();
             Toast.makeText(this, "All chat deleted", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == android.R.id.home) {
+            startActivity(new Intent(ChatActivity.this, MainActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -216,4 +218,10 @@ public class ChatActivity extends AppCompatActivity {
         (NOTIFICATION_SERVICE);
         notificationManager.notify(uniqueID, notification.build());
     }*/
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ChatActivity.this, MainActivity.class));
+        super.onBackPressed();
+    }
 }
