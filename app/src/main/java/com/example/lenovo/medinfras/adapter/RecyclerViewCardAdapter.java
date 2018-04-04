@@ -13,8 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lenovo.medinfras.Listitem;
+import com.example.lenovo.medinfras.model.PatientDetailModel;
 import com.example.lenovo.medinfras.R;
+import com.example.lenovo.medinfras.activity.DrugListActivity;
 import com.example.lenovo.medinfras.activity.TimelineActivity;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
     @BindView(R.id.btnObatCard)
     Button btnObatCard;
 
-    private List<Listitem> list_item;
+    private List<PatientDetailModel> list_item;
     private Context context;
     private OnItemClickListener mListener;
 
@@ -50,7 +51,7 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
         mListener = listener;
     }
 
-    public RecyclerViewCardAdapter(List<Listitem> list_item, final Context context) {
+    public RecyclerViewCardAdapter(List<PatientDetailModel> list_item, final Context context) {
         this.list_item = list_item;
         this.context = context;
     }
@@ -64,7 +65,7 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Listitem listitem = list_item.get(position);
+        final PatientDetailModel listitem = list_item.get(position);
 
         holder.textViewName.setText(listitem.getNameCard());
         holder.textViewMRN.setText(listitem.getMRNCard());
@@ -83,15 +84,8 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
         holder.btnObatCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Obat Card Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        holder.btnObatCard.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Toast.makeText(context, "Obat Card Long Clicked", Toast.LENGTH_SHORT).show();
-                return false;
+                Intent intent = new Intent(context, DrugListActivity.class);
+                context.startActivity(intent);
             }
         });
     }
@@ -138,7 +132,7 @@ public class RecyclerViewCardAdapter extends RecyclerView.Adapter<RecyclerViewCa
         }
     }
 
-    public void setFilter(List<Listitem> newList) {
+    public void setFilter(List<PatientDetailModel> newList) {
         list_item = new ArrayList<>();
         list_item.addAll(newList);
         notifyDataSetChanged();

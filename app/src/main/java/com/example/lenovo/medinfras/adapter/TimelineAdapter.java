@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lenovo.medinfras.R;
-import com.example.lenovo.medinfras.TimelineModel;
+import com.example.lenovo.medinfras.model.TimelineModel;
 import com.github.vipulasri.timelineview.TimelineView;
 
 import java.util.List;

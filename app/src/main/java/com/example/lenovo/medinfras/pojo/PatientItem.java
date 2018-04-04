@@ -1,5 +1,6 @@
 package com.example.lenovo.medinfras.pojo;
 
+import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class PatientItem{
@@ -21,6 +22,9 @@ public class PatientItem{
 
 	@SerializedName("id")
 	private int id;
+
+	@SerializedName("drug")
+	private List<DrugItem> drug;
 
 	public void setBirthday(String birthday){
 		this.birthday = birthday;
@@ -70,6 +74,14 @@ public class PatientItem{
 		return id;
 	}
 
+	public void setDrug(List<DrugItem> drug){
+		this.drug = drug;
+	}
+
+	public List<DrugItem> getDrug(){
+		return drug;
+	}
+
 	@Override
  	public String toString(){
 		return 
@@ -80,6 +92,7 @@ public class PatientItem{
 			",name = '" + name + '\'' + 
 			",mrn = '" + mrn + '\'' + 
 			",id = '" + id + '\'' + 
+			",drug = '" + drug + '\'' + 
 			"}";
 		}
 }

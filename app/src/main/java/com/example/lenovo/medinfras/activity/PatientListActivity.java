@@ -23,7 +23,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lenovo.medinfras.HttpHandler;
+import com.example.lenovo.medinfras.javaclass.HttpHandler;
 import com.example.lenovo.medinfras.R;
 
 import org.json.JSONArray;

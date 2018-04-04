@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.lenovo.medinfras.R;
-import com.example.lenovo.medinfras.TimelineModel;
+import com.example.lenovo.medinfras.model.TimelineModel;
 import com.example.lenovo.medinfras.adapter.TimelineAdapter;
 
 import java.util.ArrayList;

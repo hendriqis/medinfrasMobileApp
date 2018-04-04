@@ -1,10 +1,10 @@
-package com.example.lenovo.medinfras;
+package com.example.lenovo.medinfras.model;
 
 /**
- * Created by Lenovo on 2/23/2018.
+ * Created by Lenovo on 4/4/2018.
  */
 
-public class Listitem {
+public class PatientDetailModel {
 
     private String ImageCard;
     private String NameCard;
@@ -12,7 +12,8 @@ public class Listitem {
     private String GenderCard;
     private String BirthdayCard;
 
-    public Listitem(String imageCard, String nameCard, String MRNCard, String genderCard, String birthdayCard) {
+    public PatientDetailModel(String imageCard, String nameCard, String MRNCard, String genderCard,
+                        String birthdayCard) {
         ImageCard = imageCard;
         NameCard = nameCard;
         this.MRNCard = MRNCard;

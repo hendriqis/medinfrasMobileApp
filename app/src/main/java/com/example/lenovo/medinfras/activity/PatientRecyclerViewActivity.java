@@ -17,7 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.lenovo.medinfras.Listitem;
+import com.example.lenovo.medinfras.model.PatientDetailModel;
 import com.example.lenovo.medinfras.R;
 import com.example.lenovo.medinfras.adapter.RecyclerViewCardAdapter;
 
@@ -39,9 +39,8 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
     @BindView(R.id.swipeRefreshLayoutId)
     SwipeRefreshLayout swipeRefreshLayoutId;
 
-
-    private static final String json_url = "https://api.myjson.com/bins/h9kap";
-    private List<Listitem> list_item;
+    private static final String json_url = "https://api.myjson.com/bins/19fmh7";
+    private List<PatientDetailModel> list_item;
     private RecyclerViewCardAdapter adapter;
 
     public static final String EXTRA_NAME = "name";
@@ -66,7 +65,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
-                overridePendingTransition(0,0);
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -87,7 +86,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject object = jsonArray.getJSONObject(i);
-                                Listitem item = new Listitem(
+                                PatientDetailModel item = new PatientDetailModel(
                                         object.getString("image"),
                                         object.getString("name"),
                                         object.getString("mrn"),
@@ -134,7 +133,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(this, PatientDetailActivity.class);
-        Listitem clickedItem = list_item.get(position);
+        PatientDetailModel clickedItem = list_item.get(position);
 
         intent.putExtra(EXTRA_NAME, clickedItem.getNameCard());
         intent.putExtra(EXTRA_MRN, clickedItem.getMRNCard());
@@ -162,7 +161,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                final List<Listitem> filtermodelist = filter(list_item, newText);
+                final List<PatientDetailModel> filtermodelist = filter(list_item, newText);
                 adapter.setFilter(filtermodelist);
                 return true;
             }
@@ -176,7 +175,7 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
-                overridePendingTransition(0,0);
+                overridePendingTransition(0, 0);
                 return true;
             }
         });
@@ -185,10 +184,10 @@ public class PatientRecyclerViewActivity extends AppCompatActivity implements
     }
 
 
-    private List<Listitem> filter(List<Listitem> li, String query) {
+    private List<PatientDetailModel> filter(List<PatientDetailModel> li, String query) {
         query = query.toLowerCase();
-        final List<Listitem> filterModeList = new ArrayList<>();
-        for (Listitem listitem : li) {
+        final List<PatientDetailModel> filterModeList = new ArrayList<>();
+        for (PatientDetailModel listitem : li) {
             final String text = listitem.getNameCard().toLowerCase();
             if (text.startsWith(query)) {
                 list_item = filterModeList;

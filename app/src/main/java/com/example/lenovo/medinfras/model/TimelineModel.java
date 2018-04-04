@@ -1,7 +1,7 @@
-package com.example.lenovo.medinfras;
+package com.example.lenovo.medinfras.model;
 
 /**
- * Created by Lenovo on 3/2/2018.
+ * Created by Lenovo on 4/4/2018.
  */
 
 public class TimelineModel {

@@ -1,4 +1,4 @@
-package com.example.lenovo.medinfras;
+package com.example.lenovo.medinfras.javaclass;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -11,12 +11,12 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 /**
- * Created by Lenovo on 1/19/2018.
+ * Created by Lenovo on 4/4/2018.
  */
 
 public class HttpHandler {
-
-    public static final String TAG = HttpHandler.class.getSimpleName();
+    public static final String TAG = com.example.lenovo.medinfras.javaclass.HttpHandler.class
+            .getSimpleName();
 
     public HttpHandler() {
 
