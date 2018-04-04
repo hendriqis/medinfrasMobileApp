@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/chatRelativeLayout"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/colorDarkWhite">
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

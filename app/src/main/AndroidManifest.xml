@@ -30,17 +30,9 @@
             android:name=".activity.SummaryOfPatientPerFloorActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".activity.PatientListViewActivity"
-            android:label="Total Pasien"
-            android:parentActivityName=".activity.SummaryOfPatientPerFloorActivity" />
-        <activity
             android:name=".activity.PatientDetailActivity"
             android:label="Patient Detail"
-            android:parentActivityName=".activity.PatientListViewActivity" />
-        <activity
-            android:name=".activity.PatientListActivity"
-            android:label="Patient List"
-            android:parentActivityName=".activity.SummaryOfPatientPerFloorActivity" />
+            android:parentActivityName=".activity.PatientRecyclerViewActivity" />
         <activity
             android:name=".activity.AnimatedSplashScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -53,7 +45,7 @@
         <activity
             android:name=".activity.TimelineActivity"
             android:label="Timeline"
-            android:parentActivityName=".activity.PatientListActivity" />
+            android:parentActivityName=".activity.PatientRecyclerViewActivity" />
         <activity
             android:name=".activity.PatientRecyclerViewActivity"
             android:label="Patient List"
