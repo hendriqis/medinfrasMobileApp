@@ -44,9 +44,9 @@ public class CalendarActivity extends AppCompatActivity {
                 Calendar calSelected = Calendar.getInstance();
                 calSelected.setTime(date);
 
-                String selectedDate = "" + calSelected.get(Calendar.DAY_OF_MONTH) + " " +
+                /*String selectedDate = "" + calSelected.get(Calendar.DAY_OF_MONTH) + " " +
                         (calSelected.get(Calendar.MONTH) + 1) + " " + calSelected.get(Calendar
-                        .YEAR);
+                        .YEAR);*/
             }
 
             @Override

@@ -25,7 +25,7 @@ import butterknife.BindView;
  * Created by Lenovo on 3/2/2018.
  */
 
-public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHolder> {
     private List<TimelineModel> timelineModelList;
     private Context context;
 
@@ -35,17 +35,17 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_timeline_row, parent, false);
         return new ViewHolder(view, viewType);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        ((ViewHolder) holder).textView.setText(timelineModelList.get(position).getName());
-        ((ViewHolder) holder).textViewDescription.setText(timelineModelList.get(position).getDescription());
-        ((ViewHolder) holder).textViewTime.setText(timelineModelList.get(position).getTime());
-        ((ViewHolder) holder).timelineCV.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        (holder).textView.setText(timelineModelList.get(position).getName());
+        (holder).textViewDescription.setText(timelineModelList.get(position).getDescription());
+        (holder).textViewTime.setText(timelineModelList.get(position).getTime());
+        (holder).timelineCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Timeline "+position, Toast.LENGTH_SHORT).show();
@@ -54,16 +54,11 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public int getItemViewType(int position) {
-        return TimelineView.getTimeLineViewType(position, getItemCount());
-    }
-
-    @Override
     public int getItemCount() {
         return timelineModelList.size();
     }
 
-    private class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TimelineView timelineView;
         CardView timelineCV;

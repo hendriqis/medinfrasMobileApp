@@ -1,5 +1,6 @@
 package com.example.lenovo.medinfras.activity;
 
+import android.annotation.SuppressLint;
 import android.graphics.RectF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -89,6 +90,7 @@ public class WeekViewActivity extends AppCompatActivity implements WeekView
         setupDateTimeInterpreter(false);
     }
 
+    //Check if the event falls into the specific year and month
     private boolean eventMatches(WeekViewEvent event, int year, int month) {
         return (event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get
                 (Calendar.MONTH) == month - 1) || (event.getEndTime().get(Calendar.YEAR) == year
@@ -178,12 +180,10 @@ public class WeekViewActivity extends AppCompatActivity implements WeekView
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Set up a date time interpreter which will show short date values when in week view and long
-     * date values otherwise.
-     *
-     * @param shortDate True if the date values should be short.
-     */
+      /*Set up a date time interpreter which will show short date values when in week view and long
+      date values otherwise.
+
+      @param shortDate True if the date values should be short.*/
     private void setupDateTimeInterpreter(final boolean shortDate) {
         mWeekView.setDateTimeInterpreter(new DateTimeInterpreter() {
             @Override
@@ -205,6 +205,7 @@ public class WeekViewActivity extends AppCompatActivity implements WeekView
         });
     }
 
+    @SuppressLint("DefaultLocale")
     protected String getEventTitle(Calendar time) {
         return String.format("Event of %02d:%02d %s/%d", time.get(Calendar.HOUR_OF_DAY), time.get
                 (Calendar.MINUTE), time.get(Calendar.MONTH) + 1, time.get(Calendar.DAY_OF_MONTH));

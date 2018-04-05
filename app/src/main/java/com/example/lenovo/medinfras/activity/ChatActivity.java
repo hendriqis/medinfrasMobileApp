@@ -93,6 +93,7 @@ public class ChatActivity extends AppCompatActivity {
         return true;
     }
 
+    //check if the user already log in or not
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -145,6 +146,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        //Check whether if the user has been logged in
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(),
                     SIGN_IN_REQUEST_CODE);

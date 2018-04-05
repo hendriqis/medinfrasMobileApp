@@ -4,8 +4,7 @@
 
     <item
         android:id="@+id/menuWeekView"
-        android:title="Week View"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_view_week"/>
+        android:title="Today Event"
+        app:showAsAction="always" />
 
 </menu>
