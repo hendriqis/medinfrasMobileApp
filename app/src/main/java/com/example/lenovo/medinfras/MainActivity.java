@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.lenovo.medinfras.activity.CalendarActivity;
+import com.example.lenovo.medinfras.activity.CalendarViewActivity;
 import com.example.lenovo.medinfras.activity.ChatActivity;
 import com.example.lenovo.medinfras.activity.LoginActivity;
 import com.example.lenovo.medinfras.activity.SummaryOfPatientPerFloorActivity;
@@ -253,6 +254,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_calendar) {
+            startActivity(new Intent(MainActivity.this, CalendarViewActivity.class));
 
         } else if (id == R.id.nav_gallery) {
 

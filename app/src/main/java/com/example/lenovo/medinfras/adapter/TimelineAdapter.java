@@ -41,14 +41,17 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         (holder).textView.setText(timelineModelList.get(position).getName());
         (holder).textViewDescription.setText(timelineModelList.get(position).getDescription());
         (holder).textViewTime.setText(timelineModelList.get(position).getTime());
         (holder).timelineCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Timeline "+position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Timeline "+holder.textView.getText().toString(),
+                        Toast
+                        .LENGTH_SHORT)
+                        .show();
             }
         });
     }
@@ -62,7 +65,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
         TimelineView timelineView;
         CardView timelineCV;
-        TextView textView, textViewDescription, textViewTime;
+        TextView textView;
+        TextView textViewDescription;
+        TextView textViewTime;
 
         public ViewHolder(View view, int viewType) {
             super(view);

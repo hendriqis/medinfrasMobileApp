@@ -67,10 +67,16 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     //Calendar Week view
+    /*current*/
     compile 'com.squareup:android-times-square:1.6.5@aar'
     compile 'com.github.alamkanak:android-week-view:1.2.6'
+    /*new*/
+    compile 'com.applandeo:material-calendar-view:1.4.0'
+
 
 }
+
+
 
 
 apply plugin: 'com.google.gms.google-services'

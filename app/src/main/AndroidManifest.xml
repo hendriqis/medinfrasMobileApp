@@ -66,6 +66,7 @@
             android:name=".activity.DrugListActivity"
             android:label="Daftar Obat"
             android:parentActivityName=".activity.PatientRecyclerViewActivity" />
+        <activity android:name=".activity.CalendarViewActivity"></activity>
     </application>
 
 </manifest>
