@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.NotificationCompat;
@@ -32,11 +31,9 @@ import com.example.lenovo.medinfras.activity.CalendarViewActivity;
 import com.example.lenovo.medinfras.activity.ChatActivity;
 import com.example.lenovo.medinfras.activity.LoginActivity;
 import com.example.lenovo.medinfras.activity.SummaryOfPatientPerFloorActivity;
-import com.example.lenovo.medinfras.activity.WeekViewActivity;
 import com.example.lenovo.medinfras.model.ChatMessage;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
-import com.roughike.bottombar.OnTabSelectListener;
+import com.ss.bottomnavigation.BottomNavigation;
+import com.ss.bottomnavigation.events.OnSelectedItemChangeListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.outpatientBtn)
     Button outpatientBtn;
     @BindView(R.id.bottomBar)
-    BottomBar bottomBar;
+    BottomNavigation bottomBar;
     @BindView(R.id.fab_logout)
     FloatingActionButton fabLogout;
     @BindView(R.id.fab_hamburger)
@@ -66,8 +63,6 @@ public class MainActivity extends AppCompatActivity
 
     Animation FabOpen, FabClose, FabRotateClockwise, FabRotateAnticlockwise;
     boolean isOpen = false;
-
-    private Context context;
 
     //notification
     NotificationCompat.Builder notification;
@@ -92,6 +87,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //region FloatingActionButton
         final FloatingActionButton fab_hamburger = (FloatingActionButton) findViewById(R.id
                 .fab_hamburger);
         final FloatingActionButton fab_logout = (FloatingActionButton) findViewById(R.id
@@ -157,6 +153,7 @@ public class MainActivity extends AppCompatActivity
          }
 
         );
+        //endregion
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -168,10 +165,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+        BottomNavigation bottomBar = (BottomNavigation) findViewById(R.id.bottomBar);
+
+        //region bottombar.setOnSelectedItemChangeListener
+        bottomBar.setOnSelectedItemChangeListener(new OnSelectedItemChangeListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId) {
+            public void onSelectedItemChanged(int tabId) {
                 switch (tabId) {
                     case R.id.tab_home:
                         getApplicationContext();
@@ -192,28 +191,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
-            @Override
-            public void onTabReSelected(int tabId) {
-                switch (tabId) {
-                    case R.id.tab_home:
-                        getApplicationContext();
-                        break;
-                    case R.id.tab_chat:
-                        Intent toChatActivity = new Intent(MainActivity.this, ChatActivity.class);
-                        startActivity(toChatActivity);
-                        break;
-                    case R.id.tab_calendar:
-                        Intent toCalendarActivity = new Intent(MainActivity.this,
-                                CalendarActivity.class);
-                        startActivity(toCalendarActivity);
-                        break;
-                    case R.id.tab_friends:
-                        Toast.makeText(MainActivity.this, "friends", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-        });
+        //endregion
     }
 
 
@@ -242,7 +220,16 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.menuItem1) {
             Toast.makeText(this, "Menu Item 1", Toast.LENGTH_SHORT).show();
-        }
+        } /*else if  (id == R.id.tab_home) {
+            getApplicationContext();
+        } else if (id == R.id.tab_chat) {
+            startActivity(new Intent(MainActivity.this, ChatActivity.class));
+        } else if (id == R.id.tab_calendar) {
+            startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+        } else if (id == R.id.tab_friends) {
+            Toast.makeText(context, "Tab Friends Selected", Toast.LENGTH_SHORT).show();
+        }*/
+
 
         return super.onOptionsItemSelected(item);
     }

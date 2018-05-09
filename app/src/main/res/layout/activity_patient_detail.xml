@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorDarkWhite">
+    android:background="@color/colorDarkWhite"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/custom_action_bar"
+        layout="@layout/custom_action_bar_patient_detail" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +43,7 @@
                     android:layout_weight="1"
                     android:text="Michael"
                     android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtMRN"
@@ -48,7 +52,7 @@
                     android:layout_weight="1"
                     android:text="00-00-00-00"
                     android:textSize="15dp"
-                    android:textStyle="italic"/>
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/txtGender"
@@ -166,9 +170,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="6dp"
+            app:tabIndicatorColor="@color/colorOrange"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/colorOrange"
-            app:tabIndicatorColor="@color/colorOrange" />
+            app:tabSelectedTextColor="@color/colorOrange" />
 
     </LinearLayout>
 

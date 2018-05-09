@@ -312,15 +312,58 @@
 
     </HorizontalScrollView>
 
-    <com.roughike.bottombar.BottomBar
+    <!--<com.roughike.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/colorPrimary"
+        app:bb_behavior="shifting"
         app:bb_activeTabAlpha="1"
         app:bb_activeTabColor="@color/colorWhite"
         app:bb_inActiveTabAlpha="0.6"
         app:bb_inActiveTabColor="#222222"
-        app:bb_tabXmlResource="@xml/bottombar_tabs" />
+        app:bb_tabXmlResource="@xml/bottombar_tabs" />-->
+
+    <com.ss.bottomnavigation.BottomNavigation
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary">
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_home"
+            app:tab_text="Home" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tab_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_chat"
+            app:tab_text="Chat" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tab_calendar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_calendar"
+            app:tab_text="Calendar" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tab_friends"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_android_black_24dp"
+            app:tab_text="Friends" />
+
+    </com.ss.bottomnavigation.BottomNavigation>
+
 </LinearLayout>
 

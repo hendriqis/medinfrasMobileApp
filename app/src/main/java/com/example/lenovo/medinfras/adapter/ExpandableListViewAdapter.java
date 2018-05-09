@@ -21,49 +21,29 @@ import java.util.List;
 public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<String> ParentList;
-    private HashMap<String, List<String>> ChildList;
+    private List<String> _parentList;
+    private HashMap<String, List<String>> _childList;
 
     public ExpandableListViewAdapter(Context context, List<String> parentList, HashMap<String,
             List<String>> childList) {
         this.context = context;
-        this.ParentList = parentList;
-        this.ChildList = childList;
+        this._parentList = parentList;
+        this._childList = childList;
     }
 
     @Override
     public int getGroupCount() {
-        return this.ParentList.size();
-    }
-
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        return this.ChildList.get(this.ParentList.get(groupPosition)).size();
+        return this._parentList.size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return this.ParentList.get(groupPosition);
-    }
-
-    @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        return this.ChildList.get(this.ParentList.get(groupPosition)).get(childPosition);
+        return this._parentList.get(groupPosition);
     }
 
     @Override
     public long getGroupId(int groupPosition) {
         return groupPosition;
-    }
-
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
     }
 
     @Override
@@ -85,6 +65,20 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    @Override
+    public int getChildrenCount(int groupPosition) {
+        return this._childList.get(this._parentList.get(groupPosition)).size();
+    }
+
+    @Override
+    public Object getChild(int groupPosition, int childPosition) {
+        return this._childList.get(this._parentList.get(groupPosition)).get(childPosition);
+    }
+
+    @Override
+    public long getChildId(int groupPosition, int childPosition) {
+        return childPosition;
+    }
 
     //Inflate child_drug.xml
     @Override
@@ -103,6 +97,11 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         txtListChild.setText(childText);
 
         return convertView;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return false;
     }
 
     @Override

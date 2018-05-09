@@ -4,31 +4,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class DrugItem{
 
-	@SerializedName("signa")
-	private String signa;
-
 	@SerializedName("route")
 	private String route;
 
-	@SerializedName("genericName")
-	private String genericName;
-
-	@SerializedName("drugIndex")
-	private int drugIndex;
+	@SerializedName("name")
+	private String name;
 
 	@SerializedName("physician")
 	private String physician;
 
-	@SerializedName("startDate")
-	private String startDate;
+	@SerializedName("id")
+	private int id;
 
-	public void setSigna(String signa){
-		this.signa = signa;
-	}
-
-	public String getSigna(){
-		return signa;
-	}
+	@SerializedName("generic")
+	private String generic;
 
 	public void setRoute(String route){
 		this.route = route;
@@ -38,20 +27,12 @@ public class DrugItem{
 		return route;
 	}
 
-	public void setGenericName(String genericName){
-		this.genericName = genericName;
+	public void setName(String name){
+		this.name = name;
 	}
 
-	public String getGenericName(){
-		return genericName;
-	}
-
-	public void setDrugIndex(int drugIndex){
-		this.drugIndex = drugIndex;
-	}
-
-	public int getDrugIndex(){
-		return drugIndex;
+	public String getName(){
+		return name;
 	}
 
 	public void setPhysician(String physician){
@@ -62,24 +43,31 @@ public class DrugItem{
 		return physician;
 	}
 
-	public void setStartDate(String startDate){
-		this.startDate = startDate;
+	public void setId(int id){
+		this.id = id;
 	}
 
-	public String getStartDate(){
-		return startDate;
+	public int getId(){
+		return id;
+	}
+
+	public void setGeneric(String generic){
+		this.generic = generic;
+	}
+
+	public String getGeneric(){
+		return generic;
 	}
 
 	@Override
  	public String toString(){
 		return 
 			"DrugItem{" + 
-			"signa = '" + signa + '\'' + 
-			",route = '" + route + '\'' + 
-			",genericName = '" + genericName + '\'' + 
-			",drugIndex = '" + drugIndex + '\'' + 
+			"route = '" + route + '\'' + 
+			",name = '" + name + '\'' + 
 			",physician = '" + physician + '\'' + 
-			",startDate = '" + startDate + '\'' + 
+			",id = '" + id + '\'' + 
+			",generic = '" + generic + '\'' + 
 			"}";
 		}
 }
