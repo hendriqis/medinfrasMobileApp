@@ -15,7 +15,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,45 +36,8 @@ public class DrugListActivity extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListViewId);
 
         //preparing list of data
-        /*prepareListData();*/
         new Downloadjson().execute();
     }
-
-    /*private void prepareListData() {
-        listDataParent = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
-
-        //Parent Title
-        listDataParent.add("Paracetamol");
-        listDataParent.add("Biogesic");
-        listDataParent.add("Formalin");
-
-        //Add the child data
-        List<String> Paracetamol = new ArrayList<String>();
-        Paracetamol.add("Generic Name : donepezil hydrochloride");
-        Paracetamol.add("Signa : 1 x sehari 3 Tablet");
-        Paracetamol.add("Route : Oral");
-        Paracetamol.add("Physician : Dr. A");
-        Paracetamol.add("Start Date : 20-Dec-2017");
-
-        List<String> Biogesic = new ArrayList<String>();
-        Biogesic.add("Generic Name : donepezil hydrochloride");
-        Biogesic.add("Signa : 1 x sehari 3 Tablet");
-        Biogesic.add("Route : Oral");
-        Biogesic.add("Physician : Dr. B");
-        Biogesic.add("Start Date : 20-Dec-2017");
-
-        List<String> Formalin = new ArrayList<String>();
-        Formalin.add("Generic Name : donepezil hydrochloride");
-        Formalin.add("Signa : 1 x sehari 3 Tablet");
-        Formalin.add("Route : Oral");
-        Formalin.add("Physician : Dr. C");
-        Formalin.add("Start Date : 20-Dec-2017");
-
-        listDataChild.put(listDataParent.get(0), Paracetamol);
-        listDataChild.put(listDataParent.get(1), Biogesic);
-        listDataChild.put(listDataParent.get(2), Formalin);
-    }*/
 
     @SuppressLint("StaticFieldLeak")
     private class Downloadjson extends AsyncTask<Void, Void, Void>{

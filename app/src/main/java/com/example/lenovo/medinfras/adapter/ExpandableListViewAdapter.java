@@ -2,7 +2,6 @@ package com.example.lenovo.medinfras.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
